@@ -4,10 +4,6 @@ import { CONSTANTS } from '@/lib/seo';
 
 const SITE_URL = CONSTANTS.SITE_URL;
 
-// ---------------------------------------------------------------------------
-// SERVICE SCHEMA — replaces Product
-// All original offer data, prices, ratings, FAQ content preserved exactly.
-// ---------------------------------------------------------------------------
 export function ProductSchema() {
   const commonOfferDefaults = {
     validFrom: '2025-01-01',
@@ -45,12 +41,11 @@ export function ProductSchema() {
     },
   };
 
-  const serviceSchema = {
+  const productSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Service',
-    '@id': `${SITE_URL}/#service`,
+    '@type': 'Product',
+    '@id': `${SITE_URL}/#product`,
     name: `${CONSTANTS.BRAND_NAME} Premium Subscription`,
-    serviceType: 'IPTV Streaming Service',
     sku: `${CONSTANTS.BRAND_NAME.toUpperCase().replace(/\s+/g, '-')}-PREMIUM`,
     category: 'Streaming Service',
     description: `Experience premium ${CONSTANTS.FOCUS_KEYWORD} from ${CONSTANTS.BRAND_NAME}. Stream 36,000+ live TV channels and 120,000+ movies and series in crisp 4K Ultra HD. Built as the leading ${CONSTANTS.SECONDARY_FOCUS_KEYWORD} for ${CONSTANTS.THIRD_FOCUS_KEYWORD} entertainment — with fast WhatsApp support and a free no-obligation trial.`,
@@ -64,22 +59,9 @@ export function ProductSchema() {
       caption: `${CONSTANTS.BRAND_NAME} - Premium ${CONSTANTS.THIRD_FOCUS_KEYWORD} Streaming Service`,
       representativeOfPage: true,
     },
-    provider: {
-      '@type': 'Organization',
-      '@id': CONSTANTS.ORGANIZATION_ID,
+    brand: {
+      '@type': 'Brand',
       name: CONSTANTS.BRAND_NAME,
-      url: SITE_URL,
-    },
-    areaServed: [
-      { '@type': 'Country', name: 'Germany' },
-      { '@type': 'Country', name: 'Austria' },
-      { '@type': 'Country', name: 'Switzerland' },
-    ],
-    availableChannel: {
-      '@type': 'ServiceChannel',
-      serviceUrl: SITE_URL,
-      servicePhone: CONSTANTS.CONTACT?.phone || '',
-      availableLanguage: ['German', 'Deutsch'],
     },
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -185,7 +167,7 @@ export function ProductSchema() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
     />
   );
 }
