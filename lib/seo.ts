@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 // ---------------------------------------------------------------------------
 // CORE BRAND & DOMAIN CONFIGURATION — GERMANY FOCUS
 // ---------------------------------------------------------------------------
-const DOMAIN = 'iptvanbietertv.de';
+const DOMAIN = 'iptvdeutschlandtv.de';
 const BRAND_NAME = 'IPTVAnbieter';
 const SITE_URL = `https://${DOMAIN}`;
 const FOCUS_KEYWORD = 'IPTV Anbieter';
